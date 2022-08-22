@@ -34,6 +34,16 @@ public class StudentController {
         return studentService.getStudentByName(name);
     }
 
+    @GetMapping("/getStudentByIdParam")
+    public Student getStudentByIdParam(@RequestParam int id){
+        return studentService.getStudentById(id);
+    }
+
+    @GetMapping("/getStudentByNameParam")
+    public Student getStudentByNameParam(@RequestParam String name){
+        return studentService.getStudentByName(name);
+    }
+
     @GetMapping("/allStudents")
     public List<Student> getAllStudents(){
         return studentService.getAllStudents();
