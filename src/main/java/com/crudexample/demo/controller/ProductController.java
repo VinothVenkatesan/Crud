@@ -54,9 +54,15 @@ public class ProductController {
         return productService.getProducts();
     }
 
+//    @GetMapping("/productById/{id}")
+//    public Product findProductById(@PathVariable int id) {
+//        return productService.getProductById(id);
+//    }
+
     @GetMapping("/productById/{id}")
-    public Product findProductById(@PathVariable int id) {
-        return productService.getProductById(id);
+    public ResponseEntity<?> findProductById(@PathVariable int id) {
+        Product pro = productService.getProductById(id);
+        return new ResponseEntity<Product>(pro, HttpStatus.OK);
     }
 
     @GetMapping("/productByName/{name}")
